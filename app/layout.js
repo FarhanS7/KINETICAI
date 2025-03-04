@@ -1,13 +1,18 @@
 import Header from "@/components/ui/header.jsx";
 import { ThemeProvider } from "@/components/ui/theme-provider.jsx"; // Updated alias usage
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@node_modules/@clerk/themes/dist/themes/src";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
-    <>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body>
+        <body className={inter.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -28,6 +33,6 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
         </body>
       </html>
-    </>
+    </ClerkProvider>
   );
 }
