@@ -1,6 +1,6 @@
-import Header from "@/components/ui/header.jsx";
-import { ThemeProvider } from "@/components/ui/theme-provider.jsx"; // Updated alias usage
+import Header from "@/components/header.jsx";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@components/theme-provider.jsx"; // Updated alias usage
 import { dark } from "@node_modules/@clerk/themes/dist/themes/src";
 import { Inter } from "next/font/google";
 import "./globals.css";

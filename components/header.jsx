@@ -11,7 +11,7 @@ import {
   StarsIcon,
 } from "lucide-react";
 
-import { Button } from "./button";
+import { Button } from "./ui/button";
 
 import {
   DropdownMenu,

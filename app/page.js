@@ -1,5 +1,13 @@
+import HeroSection from "@components/hero";
+
 const page = () => {
-  return <div className="">page</div>;
+  return (
+    <div className="">
+      <div className="grid-background"></div>
+
+      <HeroSection />
+    </div>
+  );
 };
 
 export default page;

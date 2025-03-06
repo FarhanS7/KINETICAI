@@ -3,30 +3,28 @@ import { NextResponse } from "next/server";
 
 const isProtectedRoute = createRouteMatcher([
   "/dashboard(.*)",
-  "/interview(.*)",
   "/resume(.*)",
+  "/interview(.*)",
   "/ai-cover-letter(.*)",
   "/onboarding(.*)",
 ]);
 
-export const middleware = clerkMiddleware(async (auth, req) => {
-  console.log("Middleware triggered!");
-  console.log("Requested Path:", req.nextUrl.pathname);
+export default clerkMiddleware(async (auth, req) => {
+  const { userId } = await auth();
 
-  const { userId, redirectToSignIn } = await auth();
-
-  if (!userId && isProtectedRoute(req.nextUrl.pathname)) {
-    console.log("User not authenticated. Redirecting to sign-in...");
+  if (!userId && isProtectedRoute(req)) {
+    const { redirectToSignIn } = await auth();
     return redirectToSignIn();
   }
 
-  console.log("User authenticated or route not protected. Proceeding...");
   return NextResponse.next();
 });
 
 export const config = {
   matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Always run for API routes
     "/(api|trpc)(.*)",
   ],
 };
