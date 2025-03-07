@@ -1,0 +1,40 @@
+export const industries = [
+  {
+    id: "tech",
+    name: "Tech Industry",
+    subIndustries: [
+      "Software Engineering",
+      "Information Technology",
+      "Cybersecurity Solutions",
+      "Cloud Services",
+      "AI & Machine Learning",
+      "Data Analytics",
+      "Web Services",
+      "Robotics & Automation",
+      "Blockchain Technologies",
+      "Quantum Computing",
+      "IoT Solutions",
+      "Virtual Reality",
+      "Semiconductors & Electronics",
+    ],
+  },
+  {
+    id: "finance",
+    name: "Financial Sector",
+    subIndustries: [
+      "Banking Services",
+      "Investment Sector",
+      "Insurance",
+      "Fintech Innovations",
+      "Wealth & Asset Management",
+      "Real Estate Finance",
+      "Private Equity",
+      "Venture Capital",
+      "Cryptocurrency",
+      "Risk & Compliance",
+      "Payments Systems",
+      "Credit Management",
+    ],
+  },
+  // Modify the rest similarly...
+];

@@ -133,16 +133,25 @@
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
+  /* Hexagonal grid pattern instead of square */
+  background-image: repeating-linear-gradient(
+      60deg,
+      rgba(100, 65, 255, 0.05) 0,
+      rgba(100, 65, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 30px
     ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
+    repeating-linear-gradient(
+      120deg,
+      rgba(100, 65, 255, 0.05) 0,
+      rgba(100, 65, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  background-size: 35px 60px;
   pointer-events: none;
   backdrop-filter: blur(0.5px);
-  animation: subtlePulse 8s ease-in-out infinite;
+  animation: subtlePulse 10s ease-in-out infinite;
 }
 
 .grid-background::before {
@@ -153,10 +162,10 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    circle at 50% 50%,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.8) 70%,
-    rgba(0, 0, 0, 0.95) 100%
+    ellipse at center,
+    rgba(15, 10, 30, 0.7) 0%,
+    rgba(10, 8, 25, 0.9) 70%,
+    rgba(5, 5, 20, 0.95) 100%
   );
 }
 
@@ -167,20 +176,106 @@
   left: 0;
   width: 100%;
   height: 100%;
+  /* Scanning line effect */
+  background: linear-gradient(
+    to bottom,
+    transparent 49.5%,
+    rgba(140, 100, 255, 0.1) 50%,
+    transparent 50.5%
+  );
+  background-size: 100% 200px;
+  animation: scanMove 8s linear infinite;
+}
+
+/* Digital noise texture */
+.digital-noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.2;
+}
+
+/* Edge highlight effect */
+.edge-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
       to right,
-      transparent 49px,
-      rgba(255, 255, 255, 0.03) 50px,
-      transparent 51px
+      rgba(140, 100, 255, 0.2) 0px,
+      transparent 5px
     ),
-    linear-gradient(
-      to bottom,
-      transparent 49px,
-      rgba(255, 255, 255, 0.03) 50px,
-      transparent 51px
-    );
-  background-size: 200px 200px;
-  animation: slowMove 20s linear infinite;
+    linear-gradient(to left, rgba(140, 100, 255, 0.2) 0px, transparent 5px),
+    linear-gradient(to bottom, rgba(140, 100, 255, 0.2) 0px, transparent 5px),
+    linear-gradient(to top, rgba(140, 100, 255, 0.2) 0px, transparent 5px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes subtlePulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scanMove {
+  0% {
+    background-position: 0 -200px;
+  }
+  100% {
+    background-position: 0 calc(100% + 200px);
+  }
+}
+
+/* Floating particles effect */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(140, 100, 255, 0.5),
+    rgba(72, 63, 190, 0.5)
+  );
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0;
+  animation: particleFloat 15s infinite linear;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(20px);
+    opacity: 0;
+  }
 }
 
 @keyframes subtlePulse {
@@ -225,4 +320,63 @@
 
 .hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s infinite;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes scanner {
+  0%,
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s infinite;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+}
+
+.animate-scanner {
+  animation: scanner 4s ease-in-out infinite;
 }
