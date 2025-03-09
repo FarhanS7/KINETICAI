@@ -380,3 +380,101 @@
 .animate-scanner {
   animation: scanner 4s ease-in-out infinite;
 }
+
+@keyframes animate-scanner {
+  0%,
+  100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes animate-scanner-vertical {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animate-shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes animate-glitch-line-1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes animate-glitch-line-2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-scanner {
+  animation: animate-scanner 4s ease-in-out infinite;
+}
+
+.animate-scanner-vertical {
+  animation: animate-scanner-vertical 6s ease-in-out infinite;
+}
+
+.animate-shine {
+  animation: animate-shine 4s linear infinite;
+}
+
+.animate-glitch-line-1 {
+  animation: animate-glitch-line-1 800ms ease-in-out infinite;
+}
+
+.animate-glitch-line-2 {
+  animation: animate-glitch-line-2 800ms ease-in-out infinite;
+}
+
+@keyframes scan {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 100%;
+  }
+}
+.animate-scan {
+  animation: scan 2s linear infinite;
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-loadingBar {
+  animation: loadingBar 1.5s infinite;
+}

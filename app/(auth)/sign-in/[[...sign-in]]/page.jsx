@@ -1,4 +1,4 @@
-import { SignIn } from "@node_modules/@clerk/nextjs/dist/types";
+import { SignIn } from "@clerk/nextjs";
 const page = () => {
   return (
     <div>

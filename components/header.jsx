@@ -1,4 +1,3 @@
-"use client";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
@@ -19,8 +18,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { checkUser } from "@lib/checkUser";
 
-const Header = () => {
+const Header = async () => {
+  await checkUser();
   return (
     <header className="fixed top-0 w-full border-b border-cyan-500/20 bg-gray-950/80 backdrop-blur-xl z-50 supports-[backdrop-filter]:bg-transparent">
       {/* Subtle gradient line at bottom of header */}
