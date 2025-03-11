@@ -14,7 +14,7 @@ export const generateAIInsights = async (industry) => {
             "salaryRanges": [
               { "role": "string", "min": number, "max": number, "median": number, "location": "string" }
             ],
-            "growthRate": number,
+            "growthRate": number, 
             "demandLevel": "High" | "Medium" | "Low",
             "topSkills": ["skill1", "skill2"],
             "marketOutlook": "Positive" | "Neutral" | "Negative",
