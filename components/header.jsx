@@ -2,10 +2,14 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
 import {
+  Brain,
+  Briefcase,
   ChevronDown,
   FileText,
   GraduationCap,
   LayoutDashboard,
+  Map,
+  MessageSquareText,
   PenBox,
   StarsIcon,
 } from "lucide-react";
@@ -42,7 +46,7 @@ const Header = async () => {
           />
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <SignedIn>
             <Link href="/dashboard">
               <Button
@@ -69,7 +73,7 @@ const Header = async () => {
                     className="flex items-center gap-2 w-full"
                   >
                     <FileText className="h-4 text-cyan-400" />
-                    <span className="hidden md:block">Build Resume</span>
+                    <span>Build Resume</span>
                   </Link>
                 </DropdownMenuItem>
 
@@ -79,7 +83,7 @@ const Header = async () => {
                     className="flex items-center gap-2 w-full"
                   >
                     <PenBox className="h-4 text-blue-400" />
-                    <span className="hidden md:block">Cover Letter</span>
+                    <span>Cover Letter</span>
                   </Link>
                 </DropdownMenuItem>
 
@@ -89,7 +93,49 @@ const Header = async () => {
                     className="flex items-center gap-2 w-full"
                   >
                     <GraduationCap className="h-4 text-indigo-400" />
-                    <span className="hidden md:block">Interview Prep</span>
+                    <span>Interview Prep</span>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* New Career Paths Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-500 hover:to-purple-600 text-white transition-all duration-300 border-0 shadow-lg hover:shadow-blue-500/30">
+                  <Brain className="h-4 mr-2" />
+                  <span className="hidden md:block">Career Paths</span>
+                  <ChevronDown className="h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-gray-900 border border-blue-600/20 shadow-xl shadow-blue-500/10">
+                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                  <Link
+                    href="/roadmap"
+                    className="flex items-center gap-2 w-full"
+                  >
+                    <Map className="h-4 text-purple-400" />
+                    <span>Roadmap</span>
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                  <Link
+                    href="/ai-qa-bot"
+                    className="flex items-center gap-2 w-full"
+                  >
+                    <MessageSquareText className="h-4 text-indigo-400" />
+                    <span>AI Q&A Bot</span>
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                  <Link
+                    href="/job-track"
+                    className="flex items-center gap-2 w-full"
+                  >
+                    <Briefcase className="h-4 text-blue-400" />
+                    <span>Job Track</span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

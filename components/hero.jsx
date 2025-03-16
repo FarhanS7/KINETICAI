@@ -1,8 +1,8 @@
 "use client";
-import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
 import { useEffect, useRef } from "react";
 
+import Image from "@node_modules/next/image";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
@@ -192,6 +192,10 @@ const HeroSection = () => {
                 className="rounded-sm group-hover:brightness-110 transition-all duration-500"
                 priority
               />
+
+              {/* <div className="spline-container">
+                <Spline scene="https://prod.spline.design/n8t-ji0o4P-4qX1p/scene.splinecode" />
+              </div> */}
             </div>
           </div>
         </div>
