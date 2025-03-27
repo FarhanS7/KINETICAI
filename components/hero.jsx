@@ -98,7 +98,7 @@ const HeroSection = () => {
                 </span>
               </Button>
             </Link>
-            <Link href="https://www.youtube.com/roadsidecoder">
+            <Link href="">
               <Button
                 size="lg"
                 variant="outline"

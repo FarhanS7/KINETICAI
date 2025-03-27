@@ -1,6 +1,4 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import Image from "@node_modules/next/image";
-import Link from "@node_modules/next/link";
 import {
   Brain,
   Briefcase,
@@ -13,6 +11,8 @@ import {
   PenBox,
   StarsIcon,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "./ui/button";
 
@@ -26,12 +26,10 @@ import { checkUser } from "@lib/checkUser";
 
 const Header = async () => {
   await checkUser();
+
   return (
     <header className="fixed top-0 w-full border-b border-cyan-500/20 bg-gray-950/80 backdrop-blur-xl z-50 supports-[backdrop-filter]:bg-transparent">
-      {/* Subtle gradient line at bottom of header */}
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-cyan-500/10 via-blue-500/30 to-purple-500/10"></div>
-
-      {/* Animated light effects */}
       <div className="absolute top-0 left-1/4 w-64 h-1 bg-gradient-to-r from-cyan-500/0 via-cyan-500/20 to-cyan-500/0 blur-sm animate-pulse"></div>
 
       <nav className="container flex items-center justify-between mx-auto py-2">
@@ -59,15 +57,17 @@ const Header = async () => {
             </Link>
 
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-500 hover:to-blue-600 text-white transition-all duration-300 border-0 shadow-lg hover:shadow-cyan-500/30">
-                  <StarsIcon className="h-4 mr-2" />
-                  <span className="hidden md:block">Tools</span>
-                  <ChevronDown className="h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
-                </Button>
+              <DropdownMenuTrigger asChild>
+                <span>
+                  <Button className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-500 hover:to-blue-600 text-white transition-all duration-300 border-0 shadow-lg hover:shadow-cyan-500/30">
+                    <StarsIcon className="h-4 mr-2" />
+                    <span className="hidden md:block">Tools</span>
+                    <ChevronDown className="h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                  </Button>
+                </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-gray-900 border border-cyan-600/20 shadow-xl shadow-cyan-500/10">
-                <DropdownMenuItem className="hover:bg-cyan-600/10 focus:bg-cyan-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/resume"
                     className="flex items-center gap-2 w-full"
@@ -76,8 +76,7 @@ const Header = async () => {
                     <span>Build Resume</span>
                   </Link>
                 </DropdownMenuItem>
-
-                <DropdownMenuItem className="hover:bg-cyan-600/10 focus:bg-cyan-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/ai-cover-letter"
                     className="flex items-center gap-2 w-full"
@@ -86,8 +85,7 @@ const Header = async () => {
                     <span>Cover Letter</span>
                   </Link>
                 </DropdownMenuItem>
-
-                <DropdownMenuItem className="hover:bg-cyan-600/10 focus:bg-cyan-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/interview"
                     className="flex items-center gap-2 w-full"
@@ -99,17 +97,18 @@ const Header = async () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* New Career Paths Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-500 hover:to-purple-600 text-white transition-all duration-300 border-0 shadow-lg hover:shadow-blue-500/30">
-                  <Brain className="h-4 mr-2" />
-                  <span className="hidden md:block">Career Paths</span>
-                  <ChevronDown className="h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
-                </Button>
+              <DropdownMenuTrigger asChild>
+                <span>
+                  <Button className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-500 hover:to-purple-600 text-white transition-all duration-300 border-0 shadow-lg hover:shadow-blue-500/30">
+                    <Brain className="h-4 mr-2" />
+                    <span className="hidden md:block">Career Paths</span>
+                    <ChevronDown className="h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                  </Button>
+                </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-gray-900 border border-blue-600/20 shadow-xl shadow-blue-500/10">
-                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/roadmap"
                     className="flex items-center gap-2 w-full"
@@ -118,8 +117,7 @@ const Header = async () => {
                     <span>Roadmap</span>
                   </Link>
                 </DropdownMenuItem>
-
-                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/ai-qa-bot"
                     className="flex items-center gap-2 w-full"
@@ -128,8 +126,7 @@ const Header = async () => {
                     <span>AI Q&A Bot</span>
                   </Link>
                 </DropdownMenuItem>
-
-                <DropdownMenuItem className="hover:bg-blue-600/10 focus:bg-blue-600/20 text-gray-200 hover:text-white">
+                <DropdownMenuItem>
                   <Link
                     href="/job-track"
                     className="flex items-center gap-2 w-full"
@@ -171,7 +168,6 @@ const Header = async () => {
         </div>
       </nav>
 
-      {/* Animated particle */}
       <div className="absolute top-1/2 right-4 w-1 h-1 bg-cyan-400/70 rounded-full animate-ping"></div>
     </header>
   );
