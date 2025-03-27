@@ -1,3 +1,4 @@
+import Image from "@node_modules/next/image";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -21,14 +22,9 @@ export default function Footer() {
             {/* Logo Column */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center">
-                  <span className="font-bold text-white text-lg">K</span>
-                </div>
-                <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                  KineticAI
-                </h2>
+                <Image src={"/logo.png"} alt="Logo" width={120} height={32} />
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm -mt-10">
                 Accelerating your career through AI-powered guidance and
                 personalized skill assessment.
               </p>

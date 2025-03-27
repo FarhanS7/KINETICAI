@@ -27,7 +27,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full pt-36 md:pt-48 pb-10 relative">
+    <section className="w-full pt-36 md:pt-48 pb-10 relative -mt-15">
       <div className="relative space-y-8 text-center bg-gradient-to-b from-gray-900 to-black overflow-hidden">
         {/* Background futuristic grid overlay - enhanced with hexagonal pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6TTAgMzBoMzB2MzBIMHoiIHN0cm9rZT0icmdiYSgxMDAsIDE5MCwgMjU1LCAwLjEpIiBzdHJva2Utd2lkdGg9Ii41Ii8+PHBhdGggZD0iTTAgMCBMMzAgMzAgTDYwIDAgTTAgNjAgTDMwIDMwIEw2MCA2MCIgc3Ryb2tlPSJyZ2JhKDYwLCAxNDAsIDI1NSwgMC4wOCkiIHN0cm9rZS13aWR0aD0iLjI1Ii8+PC9nPjwvc3ZnPg==')] opacity-25"></div>
@@ -185,7 +185,7 @@ const HeroSection = () => {
               </div>
 
               <Image
-                src="/8957067.jpeg"
+                src="/banner5.png"
                 width={1280}
                 height={720}
                 alt="Dashboard Preview"

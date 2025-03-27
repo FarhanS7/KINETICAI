@@ -28,7 +28,7 @@ const Header = async () => {
   await checkUser();
 
   return (
-    <header className="fixed top-0 w-full border-b border-cyan-500/20 bg-gray-950/80 backdrop-blur-xl z-50 supports-[backdrop-filter]:bg-transparent">
+    <header className="fixed top-0 w-full border-b border-cyan-500/20 bg-gray-950/80 backdrop-blur-xl  supports-[backdrop-filter]:bg-transparent">
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-cyan-500/10 via-blue-500/30 to-purple-500/10"></div>
       <div className="absolute top-0 left-1/4 w-64 h-1 bg-gradient-to-r from-cyan-500/0 via-cyan-500/20 to-cyan-500/0 blur-sm animate-pulse"></div>
 
@@ -37,14 +37,14 @@ const Header = async () => {
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
           <Image
             src="/logo.png"
-            width={200}
-            height={60}
+            width={300}
+            height={100}
             alt="logo"
-            className="w-auto h-12 object-contain py-1 relative"
+            className="h-50  object-contain py-1 relative -mt-15"
           />
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 -mt-15">
           <SignedIn>
             <Link href="/dashboard">
               <Button
